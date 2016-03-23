@@ -1,0 +1,121 @@
+﻿<html>
+  <head>
+   
+    <style>
+	 *{
+	 padding: 0;
+	 margin: 0;
+	 }
+	 .wrapper{
+	 width: 600px;
+	 margin: 0 auto;
+	 font-family: Arial, sans-serif;
+	 text-shadow: 2px 3px 2px white;
+	 }
+	 #output{
+	 width: 160px;
+	 height:35px;
+	 background-color:#c3f2e5;
+	 border: 3px solid #cbf2e8;
+	 margin-left: 230px;
+	 margin-top: 50px;
+	 border-radius: 5px;
+	 color: #007af7;
+	 font-size: 25px;
+	 font-weight: bold;
+     text-align:center;
+	 }
+	 #output p{
+	 display:block;
+	 text-align:center;
+	 margin-top: auto;
+	 }
+	 #startPause, #reset{
+	 width: 70px;
+	 height:30px;
+	 font-size: 15px;
+	 font-weight: bold;
+	 color: #007af7;
+	 background-color: #91f2d8;
+	 border:none;
+	 border-radius: 5px;
+	 margin-top:20px;
+	 }
+	 #startPause{
+	 margin-left: 230px;
+	 margin-right:20px;
+	}
+	 
+	</style>
+	<script>
+	   var time = 0;
+	   var running = 0;
+	   
+	     function startPause(){
+		   if(running == 0){
+		      running = 1;
+		     increment();
+			 document.getElementById("startPause").innerHTML='Pause';
+		   }else{
+		      running = 0;
+			  document.getElementById("startPause").innerHTML='Resume';
+		   }
+		 }
+	   
+	     function reset(){
+		     running = 0;
+			 time = 0;
+			 document.getElementById("startPause").innerHTML = 'Start';
+			 document.getElementById("output").innerHTML = "00:00:00:00";
+		 }
+	   
+	     function increment(){
+		    if(running == 1){
+		       setTimeout(function(){
+			   time++;
+			   h = Math.floor( time / (60 * 60 * 10) );
+	           time = time % (60 * 60 * 1000);
+	           mins = Math.floor( time / (60 * 10) );
+	           time = time % (60 * 10);
+	           secs = Math.floor( time / 10 );
+	           tenths = time % 10;			  
+			   /*time++;
+				var h = Math.floor(time/(10/60/60);
+				var mins = Math.floor(time/10/60);
+				var secs = Math.floor(time/10);
+				var tenths = time % 10;*/
+				
+				if(mins < 10){
+				   mins = "0" + mins;
+				}
+				if(secs < 10){
+				   secs = "0" + secs;
+				}
+				if(h < 10){
+ 				   h = '0' + h;
+				}
+				document.getElementById("output").innerHTML = h + ":" + mins + ":" + secs + ":" + "0" + tenths;
+				increment();
+			 },100);
+		   }             
+		}
+		
+		/*function colorLighter(){
+		   var light = document.getElementById("output");
+		   if(light){
+		     light.setAttribute( "class", "red" );
+		   }
+		} */
+	   
+	</script>
+   </head>
+   <body>
+    <div class="wrapper">
+     <p id="output" onmouseover="colorLighter()"></p>
+	 <div id="controls">
+        <button id="startPause" onclick="startPause()">Start</button>	 
+	    <button id ="reset" onclick="reset()">Reset</button>
+  	 </div>
+	 </div>
+	</body>
+</html>
