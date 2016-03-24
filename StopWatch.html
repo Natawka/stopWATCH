@@ -10,7 +10,7 @@
 	 width: 600px;
 	 margin: 0 auto;
 	 font-family: Arial, sans-serif;
-	 text-shadow: 2px 3px 2px white;
+	 
 	 }
 	 #output{
 	 width: 160px;
@@ -24,6 +24,7 @@
 	 font-size: 25px;
 	 font-weight: bold;
      text-align:center;
+	 text-shadow: 2px 1px 2px #527ac2;
 	 }
 	 #output p{
 	 display:block;
@@ -31,18 +32,19 @@
 	 margin-top: auto;
 	 }
 	 #startPause, #reset{
-	 width: 70px;
+	 width: 85px;
 	 height:30px;
-	 font-size: 15px;
+	 font-size: 18px;
 	 font-weight: bold;
 	 color: #007af7;
 	 background-color: #91f2d8;
 	 border:none;
 	 border-radius: 5px;
 	 margin-top:20px;
+	 text-shadow: 1px 1px 1px #527ac2;
 	 }
 	 #startPause{
-	 margin-left: 230px;
+	 margin-left: 218px;
 	 margin-right:20px;
 	}
 	 
@@ -79,12 +81,7 @@
 	           time = time % (60 * 10);
 	           secs = Math.floor( time / 10 );
 	           tenths = time % 10;			  
-			   /*time++;
-				var h = Math.floor(time/(10/60/60);
-				var mins = Math.floor(time/10/60);
-				var secs = Math.floor(time/10);
-				var tenths = time % 10;*/
-				
+			   				
 				if(mins < 10){
 				   mins = "0" + mins;
 				}
@@ -100,21 +97,15 @@
 		   }             
 		}
 		
-		/*function colorLighter(){
-		   var light = document.getElementById("output");
-		   if(light){
-		     light.setAttribute( "class", "red" );
-		   }
-		} */
-	   
+		 
 	</script>
    </head>
    <body>
     <div class="wrapper">
-     <p id="output" onmouseover="colorLighter()"></p>
+     <p id="output"></p>
 	 <div id="controls">
         <button id="startPause" onclick="startPause()">Start</button>	 
-	    <button id ="reset" onclick="reset()">Reset</button>
+	    <button id="reset" onclick="reset()">Reset</button>
   	 </div>
 	 </div>
 	</body>
