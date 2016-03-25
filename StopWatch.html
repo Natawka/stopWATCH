@@ -7,24 +7,53 @@
 	 margin: 0;
 	 }
 	 .wrapper{
+	 margin: 0 auto;
+	   background: linear-gradient(270deg, #2c0918, #a80d26, #0c0c0c);
+background-size: 600% 600%;
+
+-webkit-animation: AnimationName 30s ease infinite;
+-moz-animation: AnimationName 30s ease infinite;
+animation: AnimationName 30s ease infinite;
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+	 font-family: Arial, sans-serif;
+	
+	 height: 100%;
+	 
+	 
+	 }
+	 .clock{
+	 padding-top: 50px;
 	 width: 600px;
 	 margin: 0 auto;
-	 font-family: Arial, sans-serif;
-	 
 	 }
 	 #output{
 	 width: 160px;
 	 height:35px;
-	 background-color:#c3f2e5;
-	 border: 3px solid #cbf2e8;
+	 background-color: #B22222;
+	 border:3px solid #FFA07A;
 	 margin-left: 230px;
-	 margin-top: 50px;
+	 
 	 border-radius: 5px;
-	 color: #007af7;
+	 color: #FFA07A;
 	 font-size: 25px;
 	 font-weight: bold;
      text-align:center;
-	 text-shadow: 2px 1px 2px #527ac2;
+	 text-shadow: 2px 1px 2px #000000;
 	 }
 	 #output p{
 	 display:block;
@@ -36,17 +65,25 @@
 	 height:30px;
 	 font-size: 18px;
 	 font-weight: bold;
-	 color: #007af7;
-	 background-color: #91f2d8;
-	 border:none;
+	 color: #FFA07A;
+	 background-color: #B22222;
+	 border:2px solid #FFA07A;
 	 border-radius: 5px;
 	 margin-top:20px;
-	 text-shadow: 1px 1px 1px #527ac2;
+	 text-shadow: 1px 1px 1px #000000;
 	 }
 	 #startPause{
 	 margin-left: 218px;
 	 margin-right:20px;
 	}
+	 #startPause:hover{
+	  background-color: #B03060;
+	  color: #FFB6C1;
+	 }
+	 #reset:hover{
+	  background-color: #B03060;
+	  color: #FFB6C1;
+	 }
 	 
 	</style>
 	<script>
@@ -102,11 +139,13 @@
    </head>
    <body>
     <div class="wrapper">
-     <p id="output"></p>
+	  <div class="clock">
+	   <p id="output"></p>
 	 <div id="controls">
         <button id="startPause" onclick="startPause()">Start</button>	 
 	    <button id="reset" onclick="reset()">Reset</button>
   	 </div>
 	 </div>
-	</body>
+	 </div>
+	 </body>
 </html>
